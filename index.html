@@ -248,7 +248,7 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
       <a class="hideable" onclick="reset();goto('pricing')">Pricing</a>
       <a class="hideable" onclick="loadSample()">Demo</a>
       <a class="hideable" href="#" onclick="signin();return false;">Sign in</a>
-      <button class="solid" onclick="window.open(appUrl('/fledge'),'_blank')">Get started →</button>
+      <button class="solid" onclick="window.open(appUrl('/auth',{mode:'signup'}),'_blank')">Get started →</button>
     </div>
   </div>
 </nav>
@@ -260,7 +260,7 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
   <div class="wrap">
     <div class="eye"><i></i>Creator growth analytics · sharpest for streamers</div>
     <h1>Know what grows your channel — <span class="g">and what to make next</span>.</h1>
-    <p class="lede">Fledge computes what's actually driving your growth — retention, hook rate, your best moments, how you rank vs peers — with the math shown. Then it turns each insight into action: the next post to make, or the stream moment to clip. Built on the Talon engine — the full analytics run today; Twitch clip-cutting is in beta.</p>
+    <p class="lede">Fledge computes what's actually driving your growth — retention, hook rate, your best moments, how you rank vs peers — with the math shown. Then it turns each insight into action: the next post to make, or the stream moment to clip. Built on the Talon engine — full analytics + Twitch chat-hype clip detection run today; auto clip-cutting is in beta.</p>
     <div class="drop" id="drop">
       <div class="ic">📈</div>
       <b>Connect your channel — or drop your stats</b>
@@ -298,7 +298,7 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
       <div class="feat"><div class="fi">📊</div><h4>Peer benchmarks <span style="font-size:10px;font-weight:700;color:var(--warn)">SOON</span></h4><p>“Your 4.2% engagement beats 80% of creators your size.” Know where you actually stand — not just your own trend line.</p></div>
       <div class="feat"><div class="fi">🤖</div><h4>AI analyst agents</h4><p>Growth Analyst, Clip Picker, Schedule Strategist — ask anything (“why did my views drop in March?”) and get a computed answer with the reasoning. Powered by the Talon engine.</p></div>
       <div class="feat"><div class="fi">🔁</div><h4>The measure → act → measure loop</h4><p>Every insight points to an action; every action gets measured. Fledge surfaces the formats and moments worth repeating. The moat, not a feature.</p></div>
-      <div class="feat"><div class="fi">✂️</div><h4>Insight → clip <span style="font-size:10px;font-weight:700;color:var(--warn)">BETA</span></h4><p>The action layer for streamers: chat-hype detection turns your best moments into ranked, ready-to-post shorts with captions.</p></div>
+      <div class="feat"><div class="fi">💬</div><h4>Chat-hype clip detection <span style="font-size:10px;font-weight:700;color:var(--good)">LIVE</span></h4><p>Drop your Twitch VOD chat log — Fledge finds the moments chat popped off and ranks them with exact timestamps, so you know what to clip and why. Auto-cutting + captions in beta.</p></div>
       <div class="feat"><div class="fi">🔒</div><h4>Your data stays yours</h4><p>Runs in your browser on upload; connected accounts are encrypted and never used to train models.</p></div>
     </div>
   </div>
@@ -360,7 +360,7 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
           <li>5 AI questions / mo</li>
           <li>Watermarked clip exports</li>
         </ul>
-        <div class="pbtn" onclick="window.open(appUrl('/fledge'),'_blank')">Try it free</div>
+        <div class="pbtn" onclick="window.open(appUrl('/auth',{mode:'signup'}),'_blank')">Try it free</div>
       </div>
       <div class="plan pop">
         <div class="badge">Most popular</div>
@@ -430,10 +430,10 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
       <div class="card"><h4>Engagement rate by post</h4><div class="chart-box"><canvas id="cEng"></canvas></div></div>
     </div>
 
-    <div class="row-label">Clippable moments — from your latest stream <span class="beta-pill">BETA</span></div>
+    <div class="row-label">Clippable moments — detected from your VOD chat <span class="beta-pill" style="color:var(--good);border-color:var(--good)">LIVE</span></div>
     <div class="card">
       <div id="clips"></div>
-      <div class="muted-note">Detected from chat-velocity + engagement spikes in your VOD. The clip-cutting engine is in beta — moments + captions shown from a sample stream.</div>
+      <div class="muted-note">Moment detection is live: drop a Twitch VOD chat log and Fledge ranks the hype spikes with timestamps. Auto clip-cutting + captions are in beta — sample stream shown here.</div>
     </div>
 
     <div class="row-label">Content screener — ranked by performance</div>
