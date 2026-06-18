@@ -44,6 +44,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);backdrop-
 .brand{display:flex;align-items:center;gap:9px;}
 .brand b{font-weight:800;letter-spacing:-.02em;font-size:16px;}
 .brand small{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:600;}
+.brand .bsub{font-size:12.5px;font-weight:500;color:var(--muted);letter-spacing:0;border-left:1px solid var(--line-2);padding-left:10px;margin-left:3px;}
+@media(max-width:760px){.brand .bsub{display:none;}}
 .nav-links{display:flex;gap:10px;align-items:center;}
 .ghost{font-size:13.5px;font-weight:600;color:var(--ink);border:1px solid var(--line-2);padding:8px 14px;border-radius:9px;transition:border-color .15s;cursor:pointer;background:none;}
 .ghost:hover{border-color:var(--teal);}
@@ -241,7 +243,7 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
   <div class="nav-in">
     <a href="#" class="brand" onclick="reset();return false;">
       <span class="mark"><img src="falcon-bird-white.png" alt=""></span>
-      <b>fledge</b>
+      <b>fledge</b><span class="bsub">AI creator analytics</span>
     </a>
     <div class="tabs">
       <a class="hideable" onclick="reset();goto('features')">Features</a>
@@ -365,8 +367,8 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
       <div class="plan pop">
         <div class="badge">Most popular</div>
         <div class="pn">Creator</div>
-        <div class="pp">$9<small>/mo</small></div>
-        <div class="pd">One winning post pays for the year.</div>
+        <div class="pp">$7.50<small>/mo</small></div>
+        <div class="pd">One winning post pays for the year. <span style="opacity:.7">Billed annually ($90/yr) · or $9/mo monthly.</span></div>
         <ul>
           <li>Connected accounts (YT · TikTok · Twitch · IG)</li>
           <li>Unlimited AI questions + agents</li>
@@ -378,8 +380,8 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
       </div>
       <div class="plan">
         <div class="pn">Pro</div>
-        <div class="pp">$19<small>/mo</small></div>
-        <div class="pd">For multi-platform power creators.</div>
+        <div class="pp">$16<small>/mo</small></div>
+        <div class="pd">For multi-platform power creators. <span style="opacity:.7">Billed annually ($190/yr) · or $19/mo monthly.</span></div>
         <ul>
           <li>Everything in Creator</li>
           <li>Multiple channels + platforms</li>
@@ -391,8 +393,8 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
       </div>
       <div class="plan">
         <div class="pn">Agency</div>
-        <div class="pp">$49<small>/mo</small></div>
-        <div class="pd">For managers running many accounts.</div>
+        <div class="pp">$41<small>/mo</small></div>
+        <div class="pd">For managers running many accounts. <span style="opacity:.7">Billed annually ($490/yr) · or $49/mo monthly.</span></div>
         <ul>
           <li>Everything in Pro</li>
           <li>Multi-account + team seats</li>
@@ -467,7 +469,7 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
       <div class="foot-brand">
         <a href="#" class="brand" onclick="reset();return false;"><span class="mark"><img src="falcon-bird-white.png" alt=""></span><b>fledge</b></a>
         <p>Creator analytics, answered. Know what's working and what to do next — computed, with the math shown.</p>
-        <p style="margin-top:6px;font-size:12px">A product of <a href="../bizfalcon/index.html" style="color:var(--teal-7);font-weight:600">BizFalcon AI</a>.</p>
+        <p style="margin-top:6px;font-size:12px">A product of <a href="https://bizfalconai.com" style="color:var(--teal-7);font-weight:600">BizFalcon AI</a>.</p>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
@@ -479,7 +481,7 @@ footer{border-top:1px solid var(--line);background:rgba(255,255,255,.85);backdro
         </div>
         <div class="foot-col">
           <h6>Company</h6>
-          <a href="../bizfalcon/index.html">BizFalcon AI</a>
+          <a href="https://bizfalconai.com">BizFalcon AI</a>
           <a href="https://talon.bizfalconai.com">Talon</a>
           <a href="mailto:sid.deepak2023@gmail.com">Contact</a>
         </div>
@@ -814,7 +816,7 @@ function goto(id){const dash=document.getElementById('dash');if(dash.style.displ
 // signin([plan]) — navigate to real auth. Pricing buttons pass their plan tier.
 function signin(plan){
   const params={mode:'signup'};
-  if(plan) params.plan='fledge-'+plan;
+  if(plan){ params.plan='fledge-'+plan; params.interval='year'; }
   window.location.href=appUrl('/auth',params);
 }
 
