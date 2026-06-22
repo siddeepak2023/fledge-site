@@ -990,8 +990,8 @@ function signin(plan){
 }
 
 function legal(t){
-  const paths={privacy:'/privacy',terms:'/terms',data:'/help'};
-  window.open(APP_ORIGIN+(paths[t]||'/privacy'),'_blank');
+  const paths={privacy:'/privacy.html',terms:'/terms.html',data:'/privacy.html'};
+  window.open(paths[t]||'/privacy.html','_blank');
 }
 document.getElementById('yr').textContent=new Date().getFullYear();
 function handleFile(file){
